@@ -38,6 +38,10 @@ $totalSpent    = array_sum(array_column($myTickets, 'total_price'));
 $totalRevenue  = array_sum(array_column($myEvents, 'total_revenue'));
 $upcomingCount = count(array_filter($myTickets, fn($t) => strtotime($t['event_date']) > time()));
 ?>
+
+<?php if (isset($_GET['paid'])): ?>
+  <div class="alert alert-success">🎉 Payment confirmed! Your ticket is secured.</div>
+<?php endif; ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
